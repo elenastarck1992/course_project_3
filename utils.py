@@ -26,3 +26,11 @@ def filter_by_state(operations_list):
         if "state" in i and i['state'] == 'EXECUTED':
             new_list.append(i)
     return new_list
+
+
+def sort_by_date(lst):
+    """
+    :param lst: список операций со статусом EXECUTED
+    :return: список операций со статусом EXECUTED, отсортированный по дате
+    """
+    return sorted(lst, key=lambda x: x['date'], reverse=True)
