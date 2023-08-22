@@ -88,3 +88,18 @@ def get_to(accounts):
     last_four = to[-4:]
     formatted = f'Счет **{last_four}'
     return formatted
+
+
+def get_amount(transactions):
+    """
+    :param transactions: список словарей с операциями
+    :return: сумма перевода
+    """
+    amounts = []
+    for transaction in transactions:
+        if not isinstance(transaction, dict):
+            raise TypeError('Входящий параметр должен быть списком словарей')
+        if "operationAmount" in transaction and isinstance(transaction["operationAmount"], dict) and "amount" in transaction["operationAmount"]:
+            amounts.append(float(transaction["operationAmount"]["amount"]))
+        for i in amounts:
+            return i
