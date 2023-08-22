@@ -34,3 +34,12 @@ def sort_by_date(lst):
     :return: список операций со статусом EXECUTED, отсортированный по дате
     """
     return sorted(lst, key=lambda x: x['date'], reverse=True)
+
+
+def print_five_operations(lst):
+    """
+    :param lst: список операций со статусом EXECUTED, отсортированный по дате
+    :return: вывод пяти последних операций со статусом EXECUTED, отсортированный по дате
+    """
+    five_oper = lst[:5]
+    return five_oper
