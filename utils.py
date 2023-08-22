@@ -66,3 +66,13 @@ def get_description(data):
     :return: назначение платежа
     """
     return data[0]["description"]
+
+
+def get_date(data):
+    """
+    :param data: дата операции
+    :return: дата операции в формате ДД.ММ.ГГ
+    """
+    date = data[0]['date']
+    date_object = datetime.strptime(date, '%Y-%m-%dT%H:%M:%S.%f')
+    return date_object.strftime('%d.%m.%Y')
