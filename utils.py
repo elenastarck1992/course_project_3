@@ -15,3 +15,14 @@ def load_json(file_name):
         execute.append(i)
     return execute
 
+
+def filter_by_state(operations_list):
+    """
+    :param operations_list: список совершенных операций
+    :return: список операций со статусом EXECUTED
+    """
+    new_list = []
+    for i in operations_list:
+        if "state" in i and i['state'] == 'EXECUTED':
+            new_list.append(i)
+    return new_list
