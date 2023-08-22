@@ -103,3 +103,25 @@ def get_amount(transactions):
             amounts.append(float(transaction["operationAmount"]["amount"]))
         for i in amounts:
             return i
+
+
+def get_from(transactions):
+    """
+    :param transactions: список словарей с операциями
+    :return: замаскированный номер счета/карты отправителя
+    """
+    to_list = []
+    for transaction in transactions:
+        if not isinstance(transaction, dict):
+            raise TypeError('Входящий параметр должен быть списком словарей')
+        if 'from' in transaction:
+            to_list.append(transaction["from"])
+    result = ''
+    for i in to_list:
+        words = i.split()
+        for word in words:
+            if any(char.isdigit() for char in word) and len(word) >= 16 and  len(word) <= 19:
+                result += word[:4] + ' ' + word[4:6] + '**' + ' ' + '****' + ' ' + word[-4:] + ' '
+            elif word.isalpha() or word.isspace():
+                result += word + ' '
+    return result.strip()
