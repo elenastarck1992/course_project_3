@@ -43,3 +43,18 @@ def print_five_operations(lst):
     """
     five_oper = lst[:5]
     return five_oper
+
+
+def get_id_info(lst, id):
+    """
+    :param lst: список операций со статусом EXECUTED, отсортированный по дате
+    :param id: номер операции
+    :return:
+    """
+    oper = lst[id]
+    oper_id = oper['id']
+    id_info = []
+    for operation in lst:
+        if operation['id'] == oper_id:
+            id_info.append(operation)
+    return id_info
