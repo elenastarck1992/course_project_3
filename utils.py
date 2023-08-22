@@ -76,3 +76,15 @@ def get_date(data):
     date = data[0]['date']
     date_object = datetime.strptime(date, '%Y-%m-%dT%H:%M:%S.%f')
     return date_object.strftime('%d.%m.%Y')
+
+
+def get_to(accounts):
+    """
+    :param accounts: номер счета получателя
+    :return: замаскированный счета получателя. Видны последние 4 цифры номера счета
+    """
+    for account in accounts:
+        to = account['to']
+    last_four = to[-4:]
+    formatted = f'Счет **{last_four}'
+    return formatted
