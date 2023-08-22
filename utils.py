@@ -58,3 +58,11 @@ def get_id_info(lst, id):
         if operation['id'] == oper_id:
             id_info.append(operation)
     return id_info
+
+
+def get_description(data):
+    """
+    :param data: данные об операции
+    :return: назначение платежа
+    """
+    return data[0]["description"]
