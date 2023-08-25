@@ -1,9 +1,9 @@
-from utils import *
+from src.utils import *
 from config import file_name
 
 
 def main():
-    list_oper =  load_json(file_name)
+    list_oper = load_json(file_name)
     print(list_oper)
     new_c = filter_by_state(list_oper)
     print(new_c)
