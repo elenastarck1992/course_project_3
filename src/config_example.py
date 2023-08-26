@@ -1,0 +1,1 @@
+file_name = "filename.json" # название файла. Файл должен лежать рядом с main.py
