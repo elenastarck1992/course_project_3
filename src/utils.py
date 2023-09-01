@@ -9,11 +9,7 @@ def load_json(file_name):
     :return: список словарей
     """
     with open(file_name, 'r', encoding='utf-8') as f:
-        operations_list = json.load(f)
-    execute = []
-    for i in operations_list:
-        execute.append(i)
-    return execute
+        return json.load(f)
 
 
 def filter_by_state(operations_list):
@@ -22,9 +18,9 @@ def filter_by_state(operations_list):
     :return: список операций со статусом EXECUTED
     """
     new_list = []
-    for i in operations_list:
-        if "state" in i and i['state'] == 'EXECUTED':
-            new_list.append(i)
+    for operation in operations_list:
+        if operation.get('state') == 'EXECUTED':
+            new_list.append(operation)
     return new_list
 
 
